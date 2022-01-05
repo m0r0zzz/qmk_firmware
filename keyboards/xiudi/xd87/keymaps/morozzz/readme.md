@@ -1,0 +1,1 @@
+# m0r0zzz's keymap for xd87
