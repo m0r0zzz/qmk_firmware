@@ -20,12 +20,12 @@
 
 //#undef RGBLED_NUM
 //#define RGBLED_NUM 16
-#undef RGBLIGHT_ANIMATIONS
+//#undef RGBLIGHT_ANIMATIONS
 
 #undef DEBOUNCE
-#define DEBOUNCE 2
+#define DEBOUNCE 10
 
-#define MIDI_BASIC
-//#define MIDI_ADVANCED
+//#define MIDI_BASIC
+#define MIDI_ADVANCED
 
 //#define BACKLIGHT_BREATHING

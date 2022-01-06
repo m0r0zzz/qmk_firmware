@@ -17,7 +17,9 @@ UNICODE_ENABLE = no         # Unicode
 BLUETOOTH_ENABLE = no       # Enable Bluetooth with the Adafruit EZ-Key HID
 AUDIO_ENABLE = no           # Audio output on port C6
 
-DEBOUNCE_TYPE = sym_defer_pk
+DEBOUNCE_TYPE = sym_eager_pk
 
 DYNAMIC_MACRO_ENABLE = yes
 KEY_LOCK_ENABLE = yes
+
+LTO_ENABLE = yes
