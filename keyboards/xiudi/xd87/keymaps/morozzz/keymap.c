@@ -28,10 +28,11 @@ enum custom_keycodes {
 #define L_BASE     0
 #define L_MIDI_OCT 1 /*row - octave layout*/
 #define L_MIDI_PI  2 /*piano/tracker layout*/
-#define L_MIDI_FF  3 /*row - fifths layout*/
-#define L_FN1      4
-#define L_FN2      5
-#define L_FN3      6
+#define L_MIDI_FR  3 /*row - fourths layout*/
+#define L_MIDI_FF  4 /*row - fifths layout*/
+#define L_FN1      5
+#define L_FN2      6
+#define L_FN3      7
 /*}*/
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -51,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_TRNS, KC_TRNS, KC_TRNS,                          KC_TRNS,                              KC_TRNS, MO(L_FN2),   KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS   ),
     [L_FN2] = LAYOUT_tkl_ansi(
 	KC_TRNS, DYN_REC_START1, DYN_REC_START2, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS,
-	KC_TRNS, DF(L_BASE), DF(L_MIDI_OCT), DF(L_MIDI_PI), DF(L_MIDI_FF), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DYN_REC_STOP,  KC_TRNS, KC_TRNS, KC_TRNS,
+	KC_TRNS, DF(L_BASE), DF(L_MIDI_OCT), DF(L_MIDI_PI), DF(L_MIDI_FR), DF(L_MIDI_FF), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DYN_REC_STOP,  KC_TRNS, KC_TRNS, KC_TRNS,
 	KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS,
 	KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS,                            
 	KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS,           KC_TRNS,         
@@ -77,6 +78,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_TRNS, MI_C_1 , MI_D_1 , MI_E_1 , MI_F_1 , MI_G_1 , MI_A_1 , MI_B_1 , MI_C_2 , MI_D_2 , MI_E_2 , MI_F_2 , MI_G_2 ,MI_VEL_10, MI_TRNSD, MI_MODSD, MI_CHD,
 	MI_MOD , KC_TRNS, MI_Cs  , MI_Ds  , KC_TRNS, MI_Fs  , MI_Gs  , MI_As  , KC_TRNS, MI_Cs_1, MI_Ds_1, KC_TRNS,         KC_TRNS ,                            
 	MI_LEG , MI_C   , MI_D   , MI_E   , MI_F   , MI_G   , MI_A   , MI_B   , MI_C_1 , MI_D_1 , MI_E_1 ,                   MI_LEG ,           MI_BENDU,         
+	MI_PORT, KC_TRNS, MI_SOST,                          MI_SUS ,                              MO(L_FN1), MI_SOST, KC_TRNS, MI_PORT,  MI_VELD, MI_BENDD, MI_VELU   ),
+	[L_MIDI_FR] = LAYOUT_tkl_ansi( /*C F As Ds Gs Cs Fs B E A D G*/
+	DF(L_BASE), MI_OCT_N2, MI_OCT_N1, MI_OCT_0, MI_OCT_1, MI_OCT_2, MI_OCT_3, MI_OCT_4, MI_OCT_5, MI_OCT_6, MI_OCT_7, MI_OCTD, MI_OCTU,           MI_TRNS_0, KC_TRNS, MI_CH1,
+	KC_TRNS, MI_Ds_1, MI_E_1 , MI_F_1 , MI_Fs_1, MI_G_1 , MI_Gs_1, MI_A_1 , MI_As_1, MI_B_1 , MI_C_2 , MI_Cs_2, MI_D_2 ,MI_ALLOFF, MI_TRNSU, MI_MODSU, MI_CHU,
+	KC_TRNS, MI_As  , MI_B   , MI_C_1 , MI_Cs_1, MI_D_1 , MI_Ds_1, MI_E_1 , MI_F_1 , MI_Fs_1, MI_G_1 , MI_Gs_1, MI_A_1 ,MI_VEL_10, MI_TRNSD, MI_MODSD, MI_CHD,
+	MI_MOD , MI_F   , MI_Fs  , MI_G   , MI_Gs  , MI_A   , MI_As  , MI_B   , MI_C_1 , MI_Cs_1, MI_D_1 , MI_Ds_1,          KC_TRNS,                            
+	MI_LEG , MI_C   , MI_Cs  , MI_D   , MI_Ds  , MI_E   , MI_F   , MI_Fs  , MI_G   , MI_Gs  , MI_A   ,                   MI_LEG ,           MI_BENDU,         
 	MI_PORT, KC_TRNS, MI_SOST,                          MI_SUS ,                              MO(L_FN1), MI_SOST, KC_TRNS, MI_PORT,  MI_VELD, MI_BENDD, MI_VELU   ),
 	[L_MIDI_FF] = LAYOUT_tkl_ansi( /*C G D A E B Fs Cs Gs Ds As F*/
 	DF(L_BASE), MI_OCT_N2, MI_OCT_N1, MI_OCT_0, MI_OCT_1, MI_OCT_2, MI_OCT_3, MI_OCT_4, MI_OCT_5, MI_OCT_6, MI_OCT_7, MI_OCTD, MI_OCTU,           MI_TRNS_0, KC_TRNS, MI_CH1,
